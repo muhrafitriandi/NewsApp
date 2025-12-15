@@ -1,31 +1,22 @@
-import config.build.BuildConfig
 import config.plugins.MainGradlePlugin
-import deps.implementationAndroidX
-import deps.implementationAppModule
 import deps.implementationDI
 import deps.implementationIntegrationTest
-import deps.implementationLocal
 import deps.implementationNetwork
 import deps.implementationUnitTest
 
 plugins {
-    id(config.plugins.PluginsConfig.ANDROID_APPLICATION)
+    id(config.plugins.PluginsConfig.ANDROID_LIBRARY)
     id(config.plugins.PluginsConfig.KOTLIN_KAPT)
-    id(config.plugins.PluginsConfig.DAGGER_HILT)
 }
 
 apply<MainGradlePlugin>()
 
 android {
-    namespace = BuildConfig.APPLICATION_ID
+    namespace = "com.yandey.utils"
 }
 
 dependencies {
-    implementationAppModule()
-
-    implementationAndroidX()
     implementationNetwork()
-    implementationLocal()
     implementationDI()
     implementationUnitTest()
     implementationIntegrationTest()

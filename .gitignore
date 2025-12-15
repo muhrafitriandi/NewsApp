@@ -27,3 +27,6 @@ reports/
 /build/
 /*/build/
 /**/build/
+
+# But keep config/build under buildSrc
+!buildSrc/src/main/kotlin/config/build/

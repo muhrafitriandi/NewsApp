@@ -1,0 +1,23 @@
+package deps
+
+object DependenciesVersion {
+    const val AGP = "8.13.0"
+    const val KOTLIN = "2.2.20"
+    const val CORE_KTX = "1.17.0"
+    const val JUNIT = "4.13.2"
+    const val JUNIT_VERSION = "1.3.0"
+    const val ESPRESSO_CORE = "3.7.0"
+    const val LIFECYCLE_RUNTIME_KTX = "2.9.4"
+    const val ACTIVITY_COMPOSE = "1.11.0"
+    const val COMPOSE_UI = "1.9.2"
+    const val COMPOSE_MATERIAL3 = "1.4.0"
+    const val RETROFIT = "2.11.0"
+    const val OKHTTP = "5.0.0-alpha.2"
+    const val HILT = "2.57.2"
+    const val HILT_COMPOSE = "1.3.0"
+    const val ROOM = "2.6.1"
+    const val KOTLINX_SERIALIZATION_JSON = "1.9.0"
+    const val DATASTORE = "1.2.0"
+    const val PROTOBUF_JAVA_LITE = "4.27.3"
+    const val CHUCKER = "4.2.0"
+}
