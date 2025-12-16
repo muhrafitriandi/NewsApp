@@ -1,5 +1,6 @@
 import config.plugins.MainGradlePlugin
-import deps.implementationKotlinx
+import deps.implementationAndroidX
+import deps.implementationPaging
 
 plugins {
     id(config.plugins.PluginsConfig.ANDROID_LIBRARY)
@@ -12,5 +13,6 @@ android {
 }
 
 dependencies {
-    implementationKotlinx()
+    implementationAndroidX()
+    implementationPaging()
 }

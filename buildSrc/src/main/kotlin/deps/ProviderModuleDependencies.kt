@@ -21,9 +21,6 @@ private fun DependencyHandler.implementationUtilsDependencies() {
 
 fun DependencyHandler.implementationAppModule() {
     implementationNewsDependencies()
-    implementationDataDependencies()
-    implementationDesignSystemDependencies()
-    implementationUtilsDependencies()
 }
 
 fun DependencyHandler.implementationDataModule() {
@@ -32,5 +29,6 @@ fun DependencyHandler.implementationDataModule() {
 
 fun DependencyHandler.implementationNewsModule() {
     implementationDataDependencies()
+    implementationDesignSystemDependencies()
     implementationUtilsDependencies()
 }
