@@ -11,6 +11,7 @@ object DependenciesVersion {
     const val ACTIVITY_COMPOSE = "1.11.0"
     const val COMPOSE_UI = "1.9.2"
     const val COMPOSE_MATERIAL3 = "1.4.0"
+    const val COMPOSE_MATERIAL_ICONS = "1.7.8"
     const val RETROFIT = "2.11.0"
     const val OKHTTP = "5.0.0-alpha.2"
     const val HILT = "2.57.2"

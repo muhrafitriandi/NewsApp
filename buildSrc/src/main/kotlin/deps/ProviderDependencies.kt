@@ -10,6 +10,7 @@ fun DependencyHandler.implementationAndroidX() {
     implementation(Dependencies.ANDROIDX_COMPOSE_UI_GRAPHICS)
     implementation(Dependencies.ANDROIDX_COMPOSE_UI_TOOLING_PREVIEW)
     implementation(Dependencies.ANDROIDX_COMPOSE_MATERIAL3)
+    implementation(Dependencies.ANDROIDX_COMPOSE_MATERIAL_ICONS)
 }
 
 private fun DependencyHandler.implementationHilt() {

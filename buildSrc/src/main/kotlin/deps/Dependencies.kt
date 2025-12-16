@@ -9,6 +9,7 @@ object Dependencies {
     const val ANDROIDX_COMPOSE_UI_TOOLING = "androidx.compose.ui:ui-tooling:${DependenciesVersion.COMPOSE_UI}"
     const val ANDROIDX_COMPOSE_UI_TOOLING_PREVIEW = "androidx.compose.ui:ui-tooling-preview:${DependenciesVersion.COMPOSE_UI}"
     const val ANDROIDX_COMPOSE_MATERIAL3 = "androidx.compose.material3:material3:${DependenciesVersion.COMPOSE_MATERIAL3}"
+    const val ANDROIDX_COMPOSE_MATERIAL_ICONS = "androidx.compose.material:material-icons-extended:${DependenciesVersion.COMPOSE_MATERIAL_ICONS}"
 
     // DI
     const val HILT_ANDROID = "com.google.dagger:hilt-android:${DependenciesVersion.HILT}"
