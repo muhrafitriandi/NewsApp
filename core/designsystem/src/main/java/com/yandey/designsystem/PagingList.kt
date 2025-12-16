@@ -1,14 +1,21 @@
 package com.yandey.designsystem
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,15 +32,30 @@ fun <T : Any> PagingList(
     loadingContent: @Composable () -> Unit = {
         CircularProgressIndicator()
     },
-    errorContent: @Composable (Throwable) -> Unit = {
-        Text("Something went wrong")
+    errorContent: @Composable (Throwable, onRetry: () -> Unit) -> Unit = { _, onRetry ->
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Text("Something went wrong")
+            Spacer(Modifier.height(8.dp))
+            Button(onClick = onRetry) {
+                Text("Retry")
+            }
+        }
     },
-    inlineErrorContent: @Composable (Throwable) -> Unit = {
-        Text(
-            text = "Failed to load data",
-            color = MaterialTheme.colorScheme.error,
-            modifier = Modifier.padding(16.dp)
-        )
+    inlineErrorContent: @Composable (Throwable, onRetry: () -> Unit) -> Unit = { _, onRetry ->
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Text(
+                text = "Failed to load data",
+                color = MaterialTheme.colorScheme.error
+            )
+            TextButton(onClick = onRetry) {
+                Text("Retry")
+            }
+        }
     },
     emptyContent: @Composable () -> Unit = {
         Text("Data not found")
@@ -59,10 +81,7 @@ fun <T : Any> PagingList(
                 loadState.append.endOfPaginationReached
 
     Box(modifier = modifier.fillMaxSize()) {
-
         LazyColumn {
-
-            // LIST ITEMS
             items(pagingItems.itemCount) { index ->
                 pagingItems[index]?.let { item ->
                     Box(
@@ -80,10 +99,12 @@ fun <T : Any> PagingList(
                 }
             }
 
-            // APPEND ERROR
+            // APPEND ERROR -> retry()
             appendError?.let {
                 item {
-                    inlineErrorContent(it.error)
+                    inlineErrorContent(it.error) {
+                        pagingItems.retry()
+                    }
                 }
             }
 
@@ -103,14 +124,16 @@ fun <T : Any> PagingList(
             FullScreenOverlay { loadingContent() }
         }
 
-        // FULL ERROR (ONLY IF NO DATA)
+        // FULL ERROR -> refresh()
         if (refreshError != null && pagingItems.itemCount == 0) {
             FullScreenOverlay {
-                errorContent(refreshError.error)
+                errorContent(refreshError.error) {
+                    pagingItems.refresh()
+                }
             }
         }
 
-        // EMPTY STATE
+        // EMPTY
         if (isEmpty) {
             FullScreenOverlay { emptyContent() }
         }
