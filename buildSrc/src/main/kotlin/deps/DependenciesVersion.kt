@@ -20,4 +20,6 @@ object DependenciesVersion {
     const val DATASTORE = "1.2.0"
     const val PROTOBUF_JAVA_LITE = "4.27.3"
     const val CHUCKER = "4.2.0"
+    const val PAGING = "3.3.6"
+    const val COIL = "2.7.0"
 }

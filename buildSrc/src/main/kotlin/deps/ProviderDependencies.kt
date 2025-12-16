@@ -58,3 +58,12 @@ fun DependencyHandler.implementationChucker() {
     debugImplementation(Dependencies.CHUCKER)
     releaseImplementation(Dependencies.CHUCKER_NO_OP)
 }
+
+fun DependencyHandler.implementationPaging() {
+    implementation(Dependencies.PAGING_RUNTIME)
+    implementation(Dependencies.PAGING_COMPOSE)
+}
+
+fun DependencyHandler.implementationCoil() {
+    implementation(Dependencies.COIL_COMPOSE)
+}

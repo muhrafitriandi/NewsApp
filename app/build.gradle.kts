@@ -4,8 +4,6 @@ import deps.implementationAndroidX
 import deps.implementationAppModule
 import deps.implementationDI
 import deps.implementationIntegrationTest
-import deps.implementationLocal
-import deps.implementationNetwork
 import deps.implementationUnitTest
 
 plugins {
@@ -24,8 +22,6 @@ dependencies {
     implementationAppModule()
 
     implementationAndroidX()
-    implementationNetwork()
-    implementationLocal()
     implementationDI()
     implementationUnitTest()
     implementationIntegrationTest()

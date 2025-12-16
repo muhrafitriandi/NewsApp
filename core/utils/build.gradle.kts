@@ -1,8 +1,5 @@
 import config.plugins.MainGradlePlugin
 import deps.implementationDI
-import deps.implementationIntegrationTest
-import deps.implementationNetwork
-import deps.implementationUnitTest
 
 plugins {
     id(config.plugins.PluginsConfig.ANDROID_LIBRARY)
@@ -16,8 +13,5 @@ android {
 }
 
 dependencies {
-    implementationNetwork()
     implementationDI()
-    implementationUnitTest()
-    implementationIntegrationTest()
 }

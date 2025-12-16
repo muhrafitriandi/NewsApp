@@ -39,4 +39,11 @@ object Dependencies {
     // Chucker
     const val CHUCKER = "com.github.chuckerteam.chucker:library:${DependenciesVersion.CHUCKER}"
     const val CHUCKER_NO_OP = "com.github.chuckerteam.chucker:library-no-op:${DependenciesVersion.CHUCKER}"
+
+    // Paging
+    const val PAGING_RUNTIME = "androidx.paging:paging-runtime:${DependenciesVersion.PAGING}"
+    const val PAGING_COMPOSE = "androidx.paging:paging-compose:${DependenciesVersion.PAGING}"
+
+    // Coil
+    const val COIL_COMPOSE = "io.coil-kt:coil-compose:${DependenciesVersion.COIL}"
 }
