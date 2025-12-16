@@ -1,17 +1,13 @@
 package com.yandey.designsystem
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -34,20 +30,7 @@ fun <T : Any> PagingList(
         ErrorComponent(onRetry)
     },
     inlineErrorContent: @Composable (Throwable, onRetry: () -> Unit) -> Unit = { _, onRetry ->
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            Text(
-                text = "Failed to load data",
-                color = MaterialTheme.colorScheme.error
-            )
-            TextButton(onClick = onRetry) {
-                Text("Retry")
-            }
-        }
+        ErrorComponent(onRetry)
     },
     emptyContent: @Composable () -> Unit = {
         Text("Data not found")
@@ -94,8 +77,10 @@ fun <T : Any> PagingList(
             // APPEND ERROR -> retry()
             appendError?.let {
                 item {
-                    inlineErrorContent(it.error) {
-                        pagingItems.retry()
+                    CenterBox {
+                        inlineErrorContent(it.error) {
+                            pagingItems.retry()
+                        }
                     }
                 }
             }

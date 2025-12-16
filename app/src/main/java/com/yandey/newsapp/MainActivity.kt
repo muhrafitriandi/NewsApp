@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import com.yandey.news.presentation.article.ArticlesScreen
+import androidx.navigation.compose.rememberNavController
 import com.yandey.newsapp.ui.theme.NewsAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,9 +20,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             NewsAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    ArticlesScreen(
+                    val navHostController = rememberNavController()
+                    MainNavigation(
                         modifier = Modifier.padding(innerPadding),
-                        onOpenDetail = {}
+                        navHostController = navHostController,
                     )
                 }
             }

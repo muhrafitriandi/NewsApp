@@ -1,5 +1,6 @@
 package com.yandey.news.presentation.article
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.collectAsState
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,11 +19,16 @@ import com.yandey.news.utils.Constant
 @Composable
 fun ArticlesScreen(
     modifier: Modifier = Modifier,
+    onBack: () -> Unit,
     viewModel: ArticlesViewModel = hiltViewModel(),
     onOpenDetail: (String) -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val pagingItems = viewModel.articlesPaging.collectAsLazyPagingItems()
+
+    BackHandler {
+        onBack()
+    }
 
     Column(modifier = modifier.fillMaxSize()) {
         AppSearchBar(
